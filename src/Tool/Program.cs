@@ -13,41 +13,8 @@ namespace Pihalve.Tdu.Tool
 {
     class Program
     {
-        //private class Dyr
-        //{
-        //}
-
-        //private class Abe : Dyr
-        //{
-        //}
-
-        //private class Ged : Dyr
-        //{
-        //}
-
         static void Main(string[] args)
         {
-            //var abe = new Abe();
-            //var ged = new Ged();
-            //var start = DateTime.Now;
-            //for (int i = 0; i < 10000000; i++)
-            //{
-            //    Dyr dyr;
-            //    if (i % 2 == 0)
-            //    {
-            //        dyr = abe;
-            //    }
-            //    else
-            //    {
-            //        dyr = ged;
-            //    }
-            //    bool res = dyr is Abe;
-            //    //bool res = dyr.GetType() == typeof(Abe);
-            //}
-            //Console.WriteLine("Time: {0}", (DateTime.Now - start).TotalMilliseconds);
-            //Console.ReadKey();
-            //return;
-
             Console.Title = "Umbraco Console";
 
             log4net.Config.XmlConfigurator.Configure();
@@ -98,6 +65,7 @@ namespace Pihalve.Tdu.Tool
         {
             var fileService = serviceContext.FileService;
             var contentTypeService = serviceContext.ContentTypeService;
+            var entityService = serviceContext.EntityService;
 
             var outputFolder = Directory.CreateDirectory(Path.Combine(dataDirectory, "SerializedItems"));
 

@@ -8,7 +8,6 @@ using log4net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Pihalve.Tdu.Tool.Providers;
-using Umbraco.Core.Models;
 
 namespace Pihalve.Tdu.Tool
 {
@@ -78,6 +77,11 @@ namespace Pihalve.Tdu.Tool
         private void WriteCollection(JsonWriter writer, PropertyInfo property, object value, bool useCamelCase)
         {
             var propertyName = GetPropertyName(property.Name, useCamelCase);
+
+            //TODO: temporary ignore certain properties until we find a good solution for handling them
+            if (propertyName.ToLower().Contains("propertygroup") ||
+                propertyName.ToLower().Contains("propertytype")) return;
+            
             writer.WritePropertyName(propertyName);
             
             //writer.WriteValue("[Collection]");
